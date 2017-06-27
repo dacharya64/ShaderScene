@@ -50,6 +50,8 @@ Shader "Devi/LambertShader"
 				float3 diffuseLight = float3(_Color.rgb) * float3(_LightColor0.rgb) * max(0.0, dot(normalDirection, lightDirection)); //max in case the value is < 0, if angle >= 90
 
 				o.col = float4(diffuseLight, 1.0); //output for vertex shader
+				//o.col = float4(normalDirection, 1.0); //output for vertex shader RAINBOW
+				//o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
 				o.pos = UnityObjectToClipPos(v.vertex); 
 				return o;
 				
